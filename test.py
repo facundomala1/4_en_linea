@@ -1,5 +1,5 @@
 import unittest
-from cuatro_en_linea import *
+from four_line import *
 
 class testCuatroEnLinea(unittest.TestCase):
     def test_board(self):
@@ -91,7 +91,7 @@ class testCuatroEnLinea(unittest.TestCase):
         game.insert_token(3)#x
         game.insert_token(5)#o
         game.insert_token(3)#x
-        # print(game.board)
+       
         self.assertEqual(game.growing_diagonal_winner(),True)
 
     def test_growing_diagonal_winner2(self):
@@ -127,7 +127,7 @@ class testCuatroEnLinea(unittest.TestCase):
         game.insert_token(1)
         game.insert_token(0)
         game.insert_token(3)
-        # print(game.board)
+        
         self.assertEqual(game.column_winner(), True)
         self.assertEqual(game.row_winner(), False)
         self.assertEqual(game.growing_diagonal_winner(), False)
