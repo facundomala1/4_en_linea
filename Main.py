@@ -1,5 +1,5 @@
 import random
-
+from four_Line import column_winner
 
 
 def victory_column(board,ficha):
@@ -17,9 +17,8 @@ def victory_column(board,ficha):
                     break
                 first_row += 1
             column += 1 
-
+        
 #Contruccion de tablero
-
 board = [[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], 
         [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
         [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
