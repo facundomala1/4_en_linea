@@ -1,10 +1,9 @@
 
 class Far_column(Exception):
     pass            
-
-class  Full_Column(Exception):
+class  FullColumn(Exception):
     pass
-
+ 
 class Game():
     def __init__(self):
         self.board = [[" " for i in range(8)] for i in range(8)] 
@@ -18,7 +17,7 @@ class Game():
             raise Far_column('fuera de rango')
         
         if self.board[0][column] != " ":
-            raise Full_Column('Columna llena')
+            raise FullColumn('Columna llena')
         
         else:    
             self.introduce_token(column)
@@ -148,9 +147,9 @@ def main():
     while game.playing:
 
         if game.player == True:
-            print('\nEs el turno del Jugador 1')
+            print('\nTurno del Jugador 1')
         else:
-            print('\nEs el turno del Jugador 2')
+            print('\nTurno del Jugador 2')
         col = int(input("\nSeleccione la columna donde va a ingresar la ficha [1|2|3|4|5|6|7|8]: "))
         
         try:
@@ -158,11 +157,11 @@ def main():
             print('\n| 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 |')
             for row in game.board:
                 print(row)
-        except Full_Column:
-            print('Vuelva a ingresar una ficha')
+        except FullColumn:
+            print('Ingresar una ficha')
       
         except Far_column:
-            print('Vuelva a ingresar una ficha')
+            print('Ingresar una ficha')
         
 
         if game.game_winner == True: 
@@ -172,7 +171,7 @@ def main():
                 print(f'\n¡Jugador 2 has ganado!¡Conseguiste un 4 en línea!')
             game.playing = False
     
-    play_again = input('\n¿Desea jugar de nuevo? (Y/N): ')
+    play_again = input('\n¿jugar de nuevo? (Y/N): ')
     
     while play_again != 'y' and play_again != 'n':
         play_again = input('\n¿Volver a jugar? (Y/N): ')
