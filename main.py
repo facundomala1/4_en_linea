@@ -1,7 +1,5 @@
 import random
-from four_Line import Game 
-from four_Line import Full_Column
-from four_Line import Far_column
+
 
 
 def victory_column(board,ficha):
