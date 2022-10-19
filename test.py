@@ -1,5 +1,6 @@
 import unittest
-from four_line import *
+from four_Line import *
+
 
 class testCuatroEnLinea(unittest.TestCase):
     def test_board(self):
@@ -24,7 +25,7 @@ class testCuatroEnLinea(unittest.TestCase):
         self.assertEqual(game.board[7][5],"o")
         self.assertEqual(game.board[7][6],"x")
         self.assertEqual(game.board[6][6],"o")
-        with self.assertRaises(ColumnOutOfRange):
+        with self.assertRaises(Far_column):
             game.insert_token(9)
         
         with self.assertRaises(FullColumn):
@@ -37,7 +38,7 @@ class testCuatroEnLinea(unittest.TestCase):
             game.insert_token(3)
             game.insert_token(3)
             game.insert_token(3)
-    
+        
     def test_column_winner(self):
         game = Game()
         game.insert_token(3)
@@ -49,7 +50,7 @@ class testCuatroEnLinea(unittest.TestCase):
         game.insert_token(3)
         print(game.board)
         self.assertEqual(game.column_winner(), True)
-    
+
     def test_row_winner(self):
         game = Game()
         game.insert_token(3)
@@ -62,7 +63,10 @@ class testCuatroEnLinea(unittest.TestCase):
         game.insert_token(6)
         self.assertEqual(game.row_winner(),True)
     
-    def test_decreasing_diagonal_winner(self):
+
+    
+
+    def test_Downward_Column_Winner(self):
         game = Game()
         game.insert_token(3)#x
         game.insert_token(3)#o
@@ -76,9 +80,9 @@ class testCuatroEnLinea(unittest.TestCase):
         game.insert_token(5)#o
         game.insert_token(7)#x
         game.insert_token(6)#o
-        self.assertEqual(game.decreasing_diagonal_winner(),True)
+        self.assertEqual(game.Downward_Column_Winner(),True)
 
-    def test_growing_diagonal_winner(self):
+    def test_Rising_column_winner(self):
         game = Game()
         game.insert_token(0)#x
         game.insert_token(1)#o
@@ -92,9 +96,9 @@ class testCuatroEnLinea(unittest.TestCase):
         game.insert_token(5)#o
         game.insert_token(3)#x
        
-        self.assertEqual(game.growing_diagonal_winner(),True)
+        self.assertEqual(game.Rising_column_winner(),True)
 
-    def test_growing_diagonal_winner2(self):
+    def test_rising_diagonal_winner2(self):
         game = Game()
         game.insert_token(0)
         game.insert_token(1)
@@ -130,8 +134,8 @@ class testCuatroEnLinea(unittest.TestCase):
         
         self.assertEqual(game.column_winner(), True)
         self.assertEqual(game.row_winner(), False)
-        self.assertEqual(game.growing_diagonal_winner(), False)
-        self.assertEqual(game.decreasing_diagonal_winner(), False)
+        self.assertEqual(game.Downward_Column_Winner(), False)
+        self.assertEqual(game.Rising_column_winner(), False)
 
 if __name__ == '__main__':
     unittest.main()
